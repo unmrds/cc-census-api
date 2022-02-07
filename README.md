@@ -8,7 +8,7 @@ This workshop is focused on US census data and use of their application programi
 * Hands-on experience working with US Census APIs to retrieve, analyze and visualize selected data using some key python packages:
   * `requests` for interacting with the US Census APIs - [https://docs.python-requests.org/en/latest/](https://docs.python-requests.org/en/latest/)
   * `json` for reading the data provided by the API calls - [https://docs.python.org/3/library/json.html](https://docs.python.org/3/library/json.html)
-  * `numpy` and `pandas` for managing the returned tabular data and performing basic statistics - [https://numpy.org]https://numpy.org),  [https://pandas.pydata.org](https://pandas.pydata.org)
+  * `numpy` and `pandas` for managing the returned tabular data and performing basic statistics - [https://numpy.org](https://numpy.org),  [https://pandas.pydata.org](https://pandas.pydata.org)
   * `matplotlib` for data visualization - [https://matplotlib.org](https://matplotlib.org)
 
 ## Pre-workshop setup
