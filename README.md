@@ -15,4 +15,4 @@ This workshop is focused on US census data and use of their application programi
 
 To be able to follow along with the hands-on practice using the listed tools you will need an operational python programming environment. We will be demonstrating the programming tools using Jupyter notebooks which have loaded the above listed packages. In preparation for the workshp we recommend installing the Anaconda individual edition ([https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)) on your computer. We will run through the installation and use of the needed packages as part of the hands-on exercise. 
 
-You should also [request and API key](https://api.census.gov/data/key_signup.html) from the US Census bureau, as this needs to be used when you submit requests to their system for data through their API. 
+You should also [request an API key](https://api.census.gov/data/key_signup.html) from the US Census bureau, as this needs to be used when you submit requests to their system for data through their API. 
