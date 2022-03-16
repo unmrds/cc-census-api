@@ -1,0 +1,336 @@
+---
+title: "US Census Data and Application Programming Interfaces (APIs)"
+author: "Robert Rhatigan"
+date: "3/18/2022"
+output:
+  pdf_document: default
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# **Census Data Products**
+
+
+The US Census Bureau ([www.census.gov](www.census.gov)) conducts 130+ surveys each year.
+
+**[data.census.gov](data.census.gov)** is the primary Census Bureau data portal (formerly FactFinder).
+
+Many surveys are conducted on behalf of other federal agencies with their own data portals and/or APIs e.g. 
+
+- Bureau of Labor Statistics [www.bls.gov/developers/](www.bls.gov/developers/)
+
+- Bureau of Economic Analysis [apps.bea.gov/API/signup/index.cfm](https://apps.bea.gov/API/signup/index.cfm)
+
+- National Center for Health Statistics
+ [www.cdc.gov/nchs/index.htm](https://www.cdc.gov/nchs/index.htm)
+
+- National Center for Education Statistics [nces.ed.gov/datatools/](https://nces.ed.gov/datatools/)
+
+
+
+
+
+## **Census APIs**
+
+www.census.gov/data/developers/data-sets.html
+
+### *Decennial Census*
+
+www.census.gov/programs-surveys/decennial-census/data.html
+
+The decennial census is the foundation of all official demographic data in the U.S.
+
+It is mandated in the U.S. Constitution under Article 1, Section 2
+
+The very first thing the Constitution directs the new government to do is *Go Gather Data*
+
+For most data users, the decennial census has limited *direct* usability because it is updated only once a decade and because it contains only a few variables i.e.
+
+- Population by Age/Sex/Race/Ethnicity 
+
+- Relationship to Head of Household
+
+- Housing Tenure (Own, Mortgage, or Rent) 
+	
+Statutory use cases:
+
+- Congressional Apportionment
+	
+- Redistricting – P.L.94-171 data
+	
+Census smallest geography = Census Block 
+
+Census Geography Hierarchy - https://www2.census.gov/geo/pdfs/reference/geodiagram.pdf
+
+Census Geography covered in more detail below
+
+
+### *American Community Survey*
+
+www.census.gov/programs-surveys/acs
+
+The ACS is a sample survey of approximately two million U.S. households each year (~1.6%)
+
+Began in 2005 replacing the census long form
+
+1-year ACS data is available for Counties and Places with population > 65,000
+
+5-year ACS data is available for all Counties and Places
+
+ACS Questions/Variables:	
+
+~50 questions for each person at the residence
+	
+~24 questions on the housing unit
+
+Comparison of ACS Data Tables and Profiles: 	https://www.census.gov/programs-surveys/acs/data/data-tables.html
+
+**Narrative Profiles** - Summaries of information in the Data Profiles using nontechnical text
+
+https://www.census.gov/acs/www/data/data-tables-and-tools/narrative-profiles/
+
+Includes Education and Income data but not cross-tabulated.
+
+**Data Profiles (DP)** - provide broad social, economic, housing and demographic information in a total of four profiles
+
+	Selected Social Characteristics – DP02
+		Educational Attainment, Languages spoken, Disability status
+		
+	Selected Economic Characteristics – DP03
+		Income and Earning, Poverty Status, Health Insurance Coverage, Commuting
+		
+	Selected Housing Characteristics – DP04
+		Own/Rent, Persons per Household, Broadband Access, Heating Fuel Type
+		
+	Demographic and Housing Estimates – DP05
+		Age/Sex, Race, Ethnicity, Group Quarters Populations, CVAP
+	
+**Comparison Profiles (CP)** - Time series of ACS data found in Data Profiles
+
+
+ACS smallest geography - Block Group
+
+### *Population Estimates and Projections*
+
+#### Estimates
+[www.census.gov/programs-surveys/popest.html](https://www.census.gov/programs-surveys/popest.html
+)
+
+Annually updated population estimates by Age/Sex/Race/Ethnicity
+
+
+Population Estimates = Census + Births - Deaths + Net Migration
+
+
+Key uses:
+
+- Federal funding distribution
+
+- Survey control totals
+
+Estimates smallest geography = County and Place
+
+#### Projections
+
+Biennual population projections by Age/Sex/Race/Ethnicity
+
+Based on current trends in fertility, mortality and net international migration
+
+www.census.gov/programs-surveys/popproj.html
+
+
+
+Projections smallest geography = Nation
+
+### *Planning Database*
+
+Select demographic and socio-economic variables from ACS + operational metrics such as response rates
+
+Convenient for downloading and locally storing data for recurring analysis (but APIs are more convenient)
+
+Planning database smallest geography = Block Group
+
+### *Census Microdata API*
+
+Allows for custom tabulations based on a sample of responses
+
+All other census datasets and APIs are aggregated data i.e. summaries and cross-tabulations 
+
+Census microdata smallest geography = Public Use Microdata Areas (PUMA) - at least 100,000 people contained in one state
+
+### *Health Insurance Statistics*
+
+From various sample surveys
+
+- American Community Survey (ACS)
+
+- Current Population Survey (CPS)
+
+CPS smallest geography = State
+
+- Survey of Income and Program Participation (SIPP)
+
+SIPP is one of the only longitudinal studies – same respondents for up to four years
+
+SIPP smallest geography = Region 
+
+### *Small Area Health Insurance Estimates (SAHIE)*
+
+2006-2017 only
+
+Modeling that combines survey data with administrative records
+
+SAHIE smallest geography = County
+
+### *Poverty Statistics*
+
+Drawn from various sample surveys:
+
+- American Community Survey (ACS)
+
+- Current Population Survey (CPS)
+
+- Small Area Income and Poverty Estimates (SAIPE)
+
+Official vs Supplemental Poverty Measures:
+
+www.census.gov/newsroom/blogs/random-samplings/2021/09/difference-between-supplemental-and-official-poverty-measures.html
+
+### *International Database*
+
+Demographic data for over 200 countries since 1960
+
+## **Economic Data APIs**
+
+### *Economic Census*
+The Economic Census is the most comprehensive measure of the U.S. economy. 
+
+Data is gathered every five years in years ending in 2 and 7.
+
+Data include:
+
+- Establishments
+
+- Employees
+
+- Payroll
+
+- Sales and Receipts 
+
+
+Economic Census smallest geography = County
+
+### *Economic Sample Surveys and Other Programs*
+
+- Annual Business Survey
+
+- Annual Survey of Manufactures
+
+- Annual Survey of Entrepreneurs
+
+- Survey of Business Owners
+
+- Economic Indicators
+
+- International Trade Program
+
+- Longitudinal Employer-Household Dynamics (LEHD)
+
+Great Resource at UNM: Bureau of Business and Economic Research bber.unm.edu
+
+BBER are experts in all census data including economic data and particularly for NM 
+
+## **Public Sector Statistics – Government of Surveys**
+
+New Mexico e.g.
+
+- 138 general purpose governments (33 counties + 105 municipal)
+
+- 875 special purpose governments such as School Districts, Water Authorities, Acequias, etc. 
+
+## IPUMS - Integrated Public Use Microdata Series
+
+Great alternative source of census data housed at the University of Minnesota
+
+World's largest population database
+
+API - https://developer.ipums.org/docs/apiprogram/
+
+# **Census Geography**
+
+Census Geography Division: www.census.gov/programs-surveys/geography/geographies.html
+
+## Census Hierarchy
+
+https://www2.census.gov/geo/pdfs/reference/geodiagram.pdf
+
+Census Bureau provides data in both political geographies (e.g. States, Counties, Cities) and Statistical geography (e.g. Regions, Tracts, Block Groups)
+
+Geographies evolve through annexations, incorporations, redistricting, decennial updates, etc. Beware when doing time series analysis 
+
+## TigerWeb
+
+https://tigerweb.geo.census.gov/tigerweb/
+
+## Shapefiles and Geodatabases
+
+Census geography files can be downloaded for use in any local GIS. Geospatial files can be joined with census or other data for analysis and map display via FIPS codes.  
+
+Shapefiles: https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
+
+Geodatabases:https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-geodatabase-file.html
+
+## Geocoding 
+
+Identifying x, y coordinates from addresses (or addresses from x,y coordinates)
+
+Census geocoding service – https://geocoding.geo.census.gov/
+
+### Alternative geocoding services:
+
+https://geoservices.tamu.edu/Services/Geocode/OtherGeocoders/	
+
+https://www.geocod.io/compare/
+
+## Census TIGERweb GeoServices REST API
+
+https://www.census.gov/data/developers/data-sets/TIGERweb-map-service.html
+
+The GeoServices REST Specification provides an open way for web clients to communicate with GIS servers. Clients issue HTTP requests to the server through structured URLs to integrate interactive maps. 
+
+## Zip Codes and ZCTAS
+Doing spatial analysis with Zip Codes can be problematic, and many researchers avoid Zip Codes when possible. 
+
+Some Zip Codes are non-contiguous and can cross state boundaries or cross census block boundaries.
+
+See zip code 81137 in CO and NM. 
+
+This is largely because the United States Postal Service is concerned with routes, not polygons. 
+
+
+ 
+
+Nonetheless, some datasets you wish to analyze may only be available at the Zip Code level. 
+
+The Census Bureau has created Zip Code Tabulation Areas (ZCTAs) which essentially create polygons that encapsulate postal routes. 
+
+https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html
+
+## Also see
+National Historic Geographic Information System  - https://www.nhgis.org/
+
+Part of IPUMS
+
+API - https://developer.ipums.org/docs/apiprogram/
+
+# data.census.gov
+
+Demo on income and educational attainment
+
+https://www.census.gov/newsroom/press-releases/2022/educational-attainment.html
+
+https://www.census.gov/library/visualizations/2022/comm/a-higher-degree.html
+
