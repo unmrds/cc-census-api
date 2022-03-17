@@ -11,6 +11,14 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+# **Outline**
+
+Overview of Census Data Products
+
+Overview of Census Geography
+
+Demo of data.census.gov
+
 # **Census Data Products**
 
 
@@ -51,7 +59,7 @@ For most data users, the decennial census has limited *direct* usability because
 
 - Population by Age/Sex/Race/Ethnicity 
 
-- Relationship to Head of Household
+- Relationship to Head of Household e.g spouse, child, parent or roommate
 
 - Housing Tenure (Own, Mortgage, or Rent) 
 	
@@ -76,23 +84,23 @@ The ACS is a sample survey of approximately two million U.S. households each yea
 
 Began in 2005 replacing the census long form
 
-1-year ACS data is available for Counties and Places with population > 65,000
+1-year ACS data is available for geographies > 65,000
 
-5-year ACS data is available for all Counties and Places
+5-year ACS data is available for additional geographies including all Counties, Places, AIAN areas, Tracts, and Block Groups.
+
+*Geography and American Community Survey*: https://www.census.gov/content/dam/Census/library/publications/2020/acs/acs_geography_handbook_2020.pdf
 
 ACS Questions/Variables:	
 
-~50 questions for each person at the residence
+~50 questions for each person in the housing unit or group quarter
 	
-~24 questions on the housing unit
+~24 questions on the housing unit or group quarter
 
-Comparison of ACS Data Tables and Profiles: 	https://www.census.gov/programs-surveys/acs/data/data-tables.html
-
-**Narrative Profiles** - Summaries of information in the Data Profiles using nontechnical text
+**Narrative Profiles** - Summaries of information found in the Data Profiles using nontechnical text
 
 https://www.census.gov/acs/www/data/data-tables-and-tools/narrative-profiles/
 
-Includes Education and Income data but not cross-tabulated.
+*Includes Education and Income data but not cross-tabulated.
 
 **Data Profiles (DP)** - provide broad social, economic, housing and demographic information in a total of four profiles
 
@@ -109,6 +117,8 @@ Includes Education and Income data but not cross-tabulated.
 		Age/Sex, Race, Ethnicity, Group Quarters Populations, CVAP
 	
 **Comparison Profiles (CP)** - Time series of ACS data found in Data Profiles
+
+Comparison of ACS Data Tables and Profiles: 	https://www.census.gov/programs-surveys/acs/data/data-tables.html
 
 
 ACS smallest geography - Block Group
@@ -147,15 +157,15 @@ Projections smallest geography = Nation
 
 ### *Planning Database*
 
-Select demographic and socio-economic variables from ACS + operational metrics such as response rates
+Select demographic and socio-economic variables from the ACS + operational metrics such as response rates
 
-Convenient for downloading and locally storing data for recurring analysis (but APIs are more convenient)
+Convenient for downloading and locally storing data for recurring analysis (APIs are even more convenient)
 
 Planning database smallest geography = Block Group
 
 ### *Census Microdata API*
 
-Allows for custom tabulations based on a sample of responses
+Allows for custom tabulations based on a sample of individual responses
 
 All other census datasets and APIs are aggregated data i.e. summaries and cross-tabulations 
 
@@ -195,7 +205,7 @@ Drawn from various sample surveys:
 
 - Small Area Income and Poverty Estimates (SAIPE)
 
-Official vs Supplemental Poverty Measures:
+Official Poverty Measure vs Supplemental Poverty Measures:
 
 www.census.gov/newsroom/blogs/random-samplings/2021/09/difference-between-supplemental-and-official-poverty-measures.html
 
@@ -249,9 +259,11 @@ New Mexico e.g.
 
 - 138 general purpose governments (33 counties + 105 municipal)
 
-- 875 special purpose governments such as School Districts, Water Authorities, Acequias, etc. 
+- 875 special purpose governments such as Drainage and Flood Control, Utility Districts, Soil and Water Conservation, etc.  
 
 ## IPUMS - Integrated Public Use Microdata Series
+
+https://www.ipums.org/
 
 Great alternative source of census data housed at the University of Minnesota
 
@@ -267,9 +279,11 @@ Census Geography Division: www.census.gov/programs-surveys/geography/geographies
 
 https://www2.census.gov/geo/pdfs/reference/geodiagram.pdf
 
-Census Bureau provides data in both political geographies (e.g. States, Counties, Cities) and Statistical geography (e.g. Regions, Tracts, Block Groups)
+Census Bureau provides data in both political geographies (e.g. States, Counties, Cities) and Statistical geographies (e.g. Regions, Tracts, Block Groups)
 
 Geographies evolve through annexations, incorporations, redistricting, decennial updates, etc. Beware when doing time series analysis 
+
+Good summary of statistical geography from ESRI: https://learn.arcgis.com/en/related-concepts/united-states-census-geography.htm
 
 ## TigerWeb
 
@@ -277,7 +291,9 @@ https://tigerweb.geo.census.gov/tigerweb/
 
 ## Shapefiles and Geodatabases
 
-Census geography files can be downloaded for use in any local GIS. Geospatial files can be joined with census or other data for analysis and map display via FIPS codes.  
+Census geography files can be downloaded for use in any local GIS. 
+
+Geospatial files can be joined with census or other data for analysis and map display via FIPS codes. 
 
 Shapefiles: https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
 
@@ -299,7 +315,9 @@ https://www.geocod.io/compare/
 
 https://www.census.gov/data/developers/data-sets/TIGERweb-map-service.html
 
-The GeoServices REST Specification provides an open way for web clients to communicate with GIS servers. Clients issue HTTP requests to the server through structured URLs to integrate interactive maps. 
+The GeoServices REST Specification provides an open way for web clients to communicate with GIS servers. 
+
+Clients issue HTTP requests to the server through structured URLs to integrate interactive maps. 
 
 ## Zip Codes and ZCTAS
 Doing spatial analysis with Zip Codes can be problematic, and many researchers avoid Zip Codes when possible. 
@@ -321,6 +339,8 @@ https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html
 
 ## Also see
 National Historic Geographic Information System  - https://www.nhgis.org/
+
+Much better time series GIS files
 
 Part of IPUMS
 
